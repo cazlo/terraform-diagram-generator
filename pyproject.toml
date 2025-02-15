@@ -1,0 +1,16 @@
+[project]
+name = "terraform-diagram-generator"
+version = "0.1.0"
+description = "CLI driven diagram code generation from terraform analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.1.8",
+    "pydot>=3.0.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+    "ruff>=0.9.6",
+]
