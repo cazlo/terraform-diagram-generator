@@ -1,0 +1,23 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] docker_container.example (expand)" [label = "docker_container.example", shape = "box"]
+		"[root] docker_image.busybox (expand)" [label = "docker_image.busybox", shape = "box"]
+		"[root] local_file.existing_file (expand)" [label = "local_file.existing_file", shape = "box"]
+		"[root] local_file.file_to_update (expand)" [label = "local_file.file_to_update", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"]" [label = "provider[\"registry.terraform.io/hashicorp/local\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/kreuzwerker/docker\"]" [label = "provider[\"registry.terraform.io/kreuzwerker/docker\"]", shape = "diamond"]
+		"[root] var.docker_socket" [label = "var.docker_socket", shape = "note"]
+		"[root] docker_container.example (expand)" -> "[root] docker_image.busybox (expand)"
+		"[root] docker_image.busybox (expand)" -> "[root] provider[\"registry.terraform.io/kreuzwerker/docker\"]"
+		"[root] local_file.existing_file (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] local_file.file_to_update (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.existing_file (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.file_to_update (expand)"
+		"[root] provider[\"registry.terraform.io/kreuzwerker/docker\"] (close)" -> "[root] docker_container.example (expand)"
+		"[root] provider[\"registry.terraform.io/kreuzwerker/docker\"]" -> "[root] var.docker_socket"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/kreuzwerker/docker\"] (close)"
+	}
+}

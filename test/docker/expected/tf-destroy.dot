@@ -1,0 +1,17 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] local_file.existing_file (destroy)" [label = "local_file.existing_file", shape = "box"]
+		"[root] local_file.file_to_delete (destroy)" [label = "local_file.file_to_delete", shape = "box"]
+		"[root] local_file.file_to_update (destroy)" [label = "local_file.file_to_update", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"]" [label = "provider[\"registry.terraform.io/hashicorp/local\"]", shape = "diamond"]
+		"[root] local_file.existing_file (destroy)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] local_file.file_to_delete (destroy)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] local_file.file_to_update (destroy)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.existing_file (destroy)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.file_to_delete (destroy)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_file.file_to_update (destroy)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)"
+	}
+}
