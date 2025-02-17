@@ -1,0 +1,689 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.10.5",
+  "variables": {
+    "docker_socket": {
+      "value": "unix:///run/user/1000/podman/podman.sock"
+    }
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "docker_container.example",
+          "mode": "managed",
+          "type": "docker_container",
+          "name": "example",
+          "provider_name": "registry.terraform.io/kreuzwerker/docker",
+          "schema_version": 2,
+          "values": {
+            "attach": false,
+            "capabilities": [],
+            "cgroupns_mode": null,
+            "command": [
+              "echo",
+              "Hello, Docker!"
+            ],
+            "container_read_refresh_timeout_milliseconds": 15000,
+            "cpu_set": null,
+            "cpu_shares": null,
+            "destroy_grace_seconds": null,
+            "devices": [],
+            "dns": null,
+            "dns_opts": null,
+            "dns_search": null,
+            "domainname": null,
+            "gpus": null,
+            "group_add": null,
+            "host": [],
+            "links": null,
+            "log_opts": null,
+            "logs": false,
+            "max_retry_count": null,
+            "memory": null,
+            "memory_swap": null,
+            "mounts": [],
+            "must_run": true,
+            "name": "example-container",
+            "network_alias": null,
+            "network_mode": null,
+            "networks": null,
+            "networks_advanced": [],
+            "pid_mode": null,
+            "ports": [],
+            "privileged": null,
+            "publish_all_ports": null,
+            "read_only": false,
+            "remove_volumes": true,
+            "restart": "no",
+            "rm": false,
+            "start": true,
+            "stdin_open": false,
+            "storage_opts": null,
+            "sysctls": null,
+            "tmpfs": null,
+            "tty": false,
+            "ulimit": [],
+            "upload": [],
+            "user": null,
+            "userns_mode": null,
+            "volumes": [],
+            "wait": false,
+            "wait_timeout": 60,
+            "working_dir": null
+          },
+          "sensitive_values": {
+            "capabilities": [],
+            "command": [
+              false,
+              false
+            ],
+            "devices": [],
+            "entrypoint": [],
+            "env": [],
+            "healthcheck": [],
+            "host": [],
+            "labels": [],
+            "mounts": [],
+            "network_data": [],
+            "networks_advanced": [],
+            "ports": [],
+            "security_opts": [],
+            "ulimit": [],
+            "upload": [],
+            "volumes": []
+          }
+        },
+        {
+          "address": "docker_image.busybox",
+          "mode": "managed",
+          "type": "docker_image",
+          "name": "busybox",
+          "provider_name": "registry.terraform.io/kreuzwerker/docker",
+          "schema_version": 0,
+          "values": {
+            "build": [],
+            "force_remove": null,
+            "keep_locally": null,
+            "name": "busybox:latest",
+            "platform": null,
+            "pull_trigger": null,
+            "pull_triggers": null,
+            "triggers": null
+          },
+          "sensitive_values": {
+            "build": []
+          }
+        },
+        {
+          "address": "local_file.existing_file",
+          "mode": "managed",
+          "type": "local_file",
+          "name": "existing_file",
+          "provider_name": "registry.terraform.io/hashicorp/local",
+          "schema_version": 0,
+          "values": {
+            "content": "This content is already existing",
+            "content_base64": null,
+            "content_base64sha256": "XIPHRkfaEJiiEBgejZy16fnbe+jYUZCT8mszRbpGSKI=",
+            "content_base64sha512": "YEmZpPse0UfVbOz+/eyKwUbhYXoTQDmJZd1hU5CO9kZGdiJbV2lmZrZxdKmwndmB7I76hOZ9ZqixdTDzuwXT9Q==",
+            "content_md5": "f9346b8a9fbb8aa5a2acfc54e9d01f4c",
+            "content_sha1": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+            "content_sha256": "5c83c74647da1098a210181e8d9cb5e9f9db7be8d8519093f26b3345ba4648a2",
+            "content_sha512": "604999a4fb1ed147d56cecfefdec8ac146e1617a1340398965dd6153908ef6464676225b57696666b67174a9b09dd981ec8efa84e67d66a8b17530f3bb05d3f5",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./local_file/existing_file.txt",
+            "id": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_values": {
+            "sensitive_content": true
+          }
+        },
+        {
+          "address": "local_file.file_to_update",
+          "mode": "managed",
+          "type": "local_file",
+          "name": "file_to_update",
+          "provider_name": "registry.terraform.io/hashicorp/local",
+          "schema_version": 0,
+          "values": {
+            "content": "This file expected to be updated",
+            "content_base64": null,
+            "directory_permission": "0777",
+            "file_permission": "0700",
+            "filename": "./local_file/file_to_update.txt",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_values": {}
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "docker_container.example",
+      "mode": "managed",
+      "type": "docker_container",
+      "name": "example",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "attach": false,
+          "capabilities": [],
+          "cgroupns_mode": null,
+          "command": [
+            "echo",
+            "Hello, Docker!"
+          ],
+          "container_read_refresh_timeout_milliseconds": 15000,
+          "cpu_set": null,
+          "cpu_shares": null,
+          "destroy_grace_seconds": null,
+          "devices": [],
+          "dns": null,
+          "dns_opts": null,
+          "dns_search": null,
+          "domainname": null,
+          "gpus": null,
+          "group_add": null,
+          "host": [],
+          "links": null,
+          "log_opts": null,
+          "logs": false,
+          "max_retry_count": null,
+          "memory": null,
+          "memory_swap": null,
+          "mounts": [],
+          "must_run": true,
+          "name": "example-container",
+          "network_alias": null,
+          "network_mode": null,
+          "networks": null,
+          "networks_advanced": [],
+          "pid_mode": null,
+          "ports": [],
+          "privileged": null,
+          "publish_all_ports": null,
+          "read_only": false,
+          "remove_volumes": true,
+          "restart": "no",
+          "rm": false,
+          "start": true,
+          "stdin_open": false,
+          "storage_opts": null,
+          "sysctls": null,
+          "tmpfs": null,
+          "tty": false,
+          "ulimit": [],
+          "upload": [],
+          "user": null,
+          "userns_mode": null,
+          "volumes": [],
+          "wait": false,
+          "wait_timeout": 60,
+          "working_dir": null
+        },
+        "after_unknown": {
+          "bridge": true,
+          "capabilities": [],
+          "command": [
+            false,
+            false
+          ],
+          "container_logs": true,
+          "devices": [],
+          "entrypoint": true,
+          "env": true,
+          "exit_code": true,
+          "gateway": true,
+          "healthcheck": true,
+          "host": [],
+          "hostname": true,
+          "id": true,
+          "image": true,
+          "init": true,
+          "ip_address": true,
+          "ip_prefix_length": true,
+          "ipc_mode": true,
+          "labels": true,
+          "log_driver": true,
+          "mounts": [],
+          "network_data": true,
+          "networks_advanced": [],
+          "ports": [],
+          "runtime": true,
+          "security_opts": true,
+          "shm_size": true,
+          "stop_signal": true,
+          "stop_timeout": true,
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "capabilities": [],
+          "command": [
+            false,
+            false
+          ],
+          "devices": [],
+          "entrypoint": [],
+          "env": [],
+          "healthcheck": [],
+          "host": [],
+          "labels": [],
+          "mounts": [],
+          "network_data": [],
+          "networks_advanced": [],
+          "ports": [],
+          "security_opts": [],
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        }
+      }
+    },
+    {
+      "address": "docker_image.busybox",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "busybox",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "build": [],
+          "force_remove": null,
+          "keep_locally": null,
+          "name": "busybox:latest",
+          "platform": null,
+          "pull_trigger": null,
+          "pull_triggers": null,
+          "triggers": null
+        },
+        "after_unknown": {
+          "build": [],
+          "id": true,
+          "image_id": true,
+          "latest": true,
+          "output": true,
+          "repo_digest": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "build": []
+        }
+      }
+    },
+    {
+      "address": "local_file.existing_file",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "existing_file",
+      "provider_name": "registry.terraform.io/hashicorp/local",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "content": "This content is already existing",
+          "content_base64": null,
+          "content_base64sha256": "XIPHRkfaEJiiEBgejZy16fnbe+jYUZCT8mszRbpGSKI=",
+          "content_base64sha512": "YEmZpPse0UfVbOz+/eyKwUbhYXoTQDmJZd1hU5CO9kZGdiJbV2lmZrZxdKmwndmB7I76hOZ9ZqixdTDzuwXT9Q==",
+          "content_md5": "f9346b8a9fbb8aa5a2acfc54e9d01f4c",
+          "content_sha1": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+          "content_sha256": "5c83c74647da1098a210181e8d9cb5e9f9db7be8d8519093f26b3345ba4648a2",
+          "content_sha512": "604999a4fb1ed147d56cecfefdec8ac146e1617a1340398965dd6153908ef6464676225b57696666b67174a9b09dd981ec8efa84e67d66a8b17530f3bb05d3f5",
+          "directory_permission": "0777",
+          "file_permission": "0777",
+          "filename": "./local_file/existing_file.txt",
+          "id": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+          "sensitive_content": null,
+          "source": null
+        },
+        "after": {
+          "content": "This content is already existing",
+          "content_base64": null,
+          "content_base64sha256": "XIPHRkfaEJiiEBgejZy16fnbe+jYUZCT8mszRbpGSKI=",
+          "content_base64sha512": "YEmZpPse0UfVbOz+/eyKwUbhYXoTQDmJZd1hU5CO9kZGdiJbV2lmZrZxdKmwndmB7I76hOZ9ZqixdTDzuwXT9Q==",
+          "content_md5": "f9346b8a9fbb8aa5a2acfc54e9d01f4c",
+          "content_sha1": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+          "content_sha256": "5c83c74647da1098a210181e8d9cb5e9f9db7be8d8519093f26b3345ba4648a2",
+          "content_sha512": "604999a4fb1ed147d56cecfefdec8ac146e1617a1340398965dd6153908ef6464676225b57696666b67174a9b09dd981ec8efa84e67d66a8b17530f3bb05d3f5",
+          "directory_permission": "0777",
+          "file_permission": "0777",
+          "filename": "./local_file/existing_file.txt",
+          "id": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+          "sensitive_content": null,
+          "source": null
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "sensitive_content": true
+        },
+        "after_sensitive": {
+          "sensitive_content": true
+        }
+      }
+    },
+    {
+      "address": "local_file.file_to_delete",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "file_to_delete",
+      "provider_name": "registry.terraform.io/hashicorp/local",
+      "change": {
+        "actions": [
+          "delete"
+        ],
+        "before": {
+          "content": "This file expected to be deleted",
+          "content_base64": null,
+          "content_base64sha256": "gjDwD7dDVALnOYAwTOSFbfQSGcAsYx66uqeikyvs/L0=",
+          "content_base64sha512": "u3nxnbuweWp1pL7N4rlwfsR9XbGuw8TIyJiS/xEKGFgwhK47Aq8+XmcpDhwty5L/2X+sllT7B1e89/zspdgD/g==",
+          "content_md5": "4d96d2167aee2d4c0b19b1dfd7d880ea",
+          "content_sha1": "5450909de90f8e72ce0403d11eb42c88fc46a0ea",
+          "content_sha256": "8230f00fb7435402e73980304ce4856df41219c02c631ebabaa7a2932becfcbd",
+          "content_sha512": "bb79f19dbbb0796a75a4becde2b9707ec47d5db1aec3c4c8c89892ff110a18583084ae3b02af3e5e67290e1c2dcb92ffd97fac9654fb0757bcf7fceca5d803fe",
+          "directory_permission": "0777",
+          "file_permission": "0777",
+          "filename": "./local_file/file_to_delete.txt",
+          "id": "5450909de90f8e72ce0403d11eb42c88fc46a0ea",
+          "sensitive_content": null,
+          "source": null
+        },
+        "after": null,
+        "after_unknown": {},
+        "before_sensitive": {
+          "sensitive_content": true
+        },
+        "after_sensitive": false
+      },
+      "action_reason": "delete_because_no_resource_config"
+    },
+    {
+      "address": "local_file.file_to_update",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "file_to_update",
+      "provider_name": "registry.terraform.io/hashicorp/local",
+      "change": {
+        "actions": [
+          "delete",
+          "create"
+        ],
+        "before": {
+          "content": "This file expected to be updated",
+          "content_base64": null,
+          "content_base64sha256": "fiXrcryxpXZ5EVaxlkJBsx+oGecu87nM4Suwe9g+HZ4=",
+          "content_base64sha512": "xv6xwJaLYKx0em6G2/TS0wdgK58G+N019Y8WCy3Sn0Qwe3AhtKiYgP9OfZrD3JzG+opQe0QQ91RJqRebkkzwlA==",
+          "content_md5": "9d3d9b6907186f48809f703dab8ee88d",
+          "content_sha1": "b1395c2559ee92e8cd9a5a9fa5dca27e4d87d8ea",
+          "content_sha256": "7e25eb72bcb1a576791156b1964241b31fa819e72ef3b9cce12bb07bd83e1d9e",
+          "content_sha512": "c6feb1c0968b60ac747a6e86dbf4d2d307602b9f06f8dd35f58f160b2dd29f44307b7021b4a89880ff4e7d9ac3dc9cc6fa8a507b4410f75449a9179b924cf094",
+          "directory_permission": "0777",
+          "file_permission": "0777",
+          "filename": "./local_file/file_to_update.txt",
+          "id": "b1395c2559ee92e8cd9a5a9fa5dca27e4d87d8ea",
+          "sensitive_content": null,
+          "source": null
+        },
+        "after": {
+          "content": "This file expected to be updated",
+          "content_base64": null,
+          "directory_permission": "0777",
+          "file_permission": "0700",
+          "filename": "./local_file/file_to_update.txt",
+          "sensitive_content": null,
+          "source": null
+        },
+        "after_unknown": {
+          "content_base64sha256": true,
+          "content_base64sha512": true,
+          "content_md5": true,
+          "content_sha1": true,
+          "content_sha256": true,
+          "content_sha512": true,
+          "id": true
+        },
+        "before_sensitive": {
+          "sensitive_content": true
+        },
+        "after_sensitive": {
+          "sensitive_content": true
+        },
+        "replace_paths": [
+          [
+            "file_permission"
+          ]
+        ]
+      },
+      "action_reason": "replace_because_cannot_update"
+    }
+  ],
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.10.5",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "local_file.existing_file",
+            "mode": "managed",
+            "type": "local_file",
+            "name": "existing_file",
+            "provider_name": "registry.terraform.io/hashicorp/local",
+            "schema_version": 0,
+            "values": {
+              "content": "This content is already existing",
+              "content_base64": null,
+              "content_base64sha256": "XIPHRkfaEJiiEBgejZy16fnbe+jYUZCT8mszRbpGSKI=",
+              "content_base64sha512": "YEmZpPse0UfVbOz+/eyKwUbhYXoTQDmJZd1hU5CO9kZGdiJbV2lmZrZxdKmwndmB7I76hOZ9ZqixdTDzuwXT9Q==",
+              "content_md5": "f9346b8a9fbb8aa5a2acfc54e9d01f4c",
+              "content_sha1": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+              "content_sha256": "5c83c74647da1098a210181e8d9cb5e9f9db7be8d8519093f26b3345ba4648a2",
+              "content_sha512": "604999a4fb1ed147d56cecfefdec8ac146e1617a1340398965dd6153908ef6464676225b57696666b67174a9b09dd981ec8efa84e67d66a8b17530f3bb05d3f5",
+              "directory_permission": "0777",
+              "file_permission": "0777",
+              "filename": "./local_file/existing_file.txt",
+              "id": "c83473fb28e8dd35c11a43c3a3814e795b53cd20",
+              "sensitive_content": null,
+              "source": null
+            },
+            "sensitive_values": {
+              "sensitive_content": true
+            }
+          },
+          {
+            "address": "local_file.file_to_delete",
+            "mode": "managed",
+            "type": "local_file",
+            "name": "file_to_delete",
+            "provider_name": "registry.terraform.io/hashicorp/local",
+            "schema_version": 0,
+            "values": {
+              "content": "This file expected to be deleted",
+              "content_base64": null,
+              "content_base64sha256": "gjDwD7dDVALnOYAwTOSFbfQSGcAsYx66uqeikyvs/L0=",
+              "content_base64sha512": "u3nxnbuweWp1pL7N4rlwfsR9XbGuw8TIyJiS/xEKGFgwhK47Aq8+XmcpDhwty5L/2X+sllT7B1e89/zspdgD/g==",
+              "content_md5": "4d96d2167aee2d4c0b19b1dfd7d880ea",
+              "content_sha1": "5450909de90f8e72ce0403d11eb42c88fc46a0ea",
+              "content_sha256": "8230f00fb7435402e73980304ce4856df41219c02c631ebabaa7a2932becfcbd",
+              "content_sha512": "bb79f19dbbb0796a75a4becde2b9707ec47d5db1aec3c4c8c89892ff110a18583084ae3b02af3e5e67290e1c2dcb92ffd97fac9654fb0757bcf7fceca5d803fe",
+              "directory_permission": "0777",
+              "file_permission": "0777",
+              "filename": "./local_file/file_to_delete.txt",
+              "id": "5450909de90f8e72ce0403d11eb42c88fc46a0ea",
+              "sensitive_content": null,
+              "source": null
+            },
+            "sensitive_values": {
+              "sensitive_content": true
+            }
+          },
+          {
+            "address": "local_file.file_to_update",
+            "mode": "managed",
+            "type": "local_file",
+            "name": "file_to_update",
+            "provider_name": "registry.terraform.io/hashicorp/local",
+            "schema_version": 0,
+            "values": {
+              "content": "This file expected to be updated",
+              "content_base64": null,
+              "content_base64sha256": "fiXrcryxpXZ5EVaxlkJBsx+oGecu87nM4Suwe9g+HZ4=",
+              "content_base64sha512": "xv6xwJaLYKx0em6G2/TS0wdgK58G+N019Y8WCy3Sn0Qwe3AhtKiYgP9OfZrD3JzG+opQe0QQ91RJqRebkkzwlA==",
+              "content_md5": "9d3d9b6907186f48809f703dab8ee88d",
+              "content_sha1": "b1395c2559ee92e8cd9a5a9fa5dca27e4d87d8ea",
+              "content_sha256": "7e25eb72bcb1a576791156b1964241b31fa819e72ef3b9cce12bb07bd83e1d9e",
+              "content_sha512": "c6feb1c0968b60ac747a6e86dbf4d2d307602b9f06f8dd35f58f160b2dd29f44307b7021b4a89880ff4e7d9ac3dc9cc6fa8a507b4410f75449a9179b924cf094",
+              "directory_permission": "0777",
+              "file_permission": "0777",
+              "filename": "./local_file/file_to_update.txt",
+              "id": "b1395c2559ee92e8cd9a5a9fa5dca27e4d87d8ea",
+              "sensitive_content": null,
+              "source": null
+            },
+            "sensitive_values": {
+              "sensitive_content": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "docker": {
+        "name": "docker",
+        "full_name": "registry.terraform.io/kreuzwerker/docker",
+        "version_constraint": "~> 2.16",
+        "expressions": {
+          "host": {
+            "references": [
+              "var.docker_socket"
+            ]
+          }
+        }
+      },
+      "local": {
+        "name": "local",
+        "full_name": "registry.terraform.io/hashicorp/local"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "docker_container.example",
+          "mode": "managed",
+          "type": "docker_container",
+          "name": "example",
+          "provider_config_key": "docker",
+          "expressions": {
+            "command": {
+              "constant_value": [
+                "echo",
+                "Hello, Docker!"
+              ]
+            },
+            "image": {
+              "references": [
+                "docker_image.busybox.latest",
+                "docker_image.busybox"
+              ]
+            },
+            "name": {
+              "constant_value": "example-container"
+            }
+          },
+          "schema_version": 2,
+          "depends_on": [
+            "docker_image.busybox"
+          ]
+        },
+        {
+          "address": "docker_image.busybox",
+          "mode": "managed",
+          "type": "docker_image",
+          "name": "busybox",
+          "provider_config_key": "docker",
+          "expressions": {
+            "name": {
+              "constant_value": "busybox:latest"
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "local_file.existing_file",
+          "mode": "managed",
+          "type": "local_file",
+          "name": "existing_file",
+          "provider_config_key": "local",
+          "expressions": {
+            "content": {
+              "constant_value": "This content is already existing"
+            },
+            "filename": {
+              "references": [
+                "path.module"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "local_file.file_to_update",
+          "mode": "managed",
+          "type": "local_file",
+          "name": "file_to_update",
+          "provider_config_key": "local",
+          "expressions": {
+            "content": {
+              "constant_value": "This file expected to be updated"
+            },
+            "file_permission": {
+              "constant_value": "0700"
+            },
+            "filename": {
+              "references": [
+                "path.module"
+              ]
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "variables": {
+        "docker_socket": {
+          "default": "unix:///var/run/docker.sock",
+          "description": "Location of the docker socket, usually unix:///var/run/docker.sock, but may be different for podman and/or rootless contexts"
+        }
+      }
+    }
+  },
+  "relevant_attributes": [
+    {
+      "resource": "docker_image.busybox",
+      "attribute": [
+        "latest"
+      ]
+    }
+  ],
+  "timestamp": "2025-02-16T23:58:32Z",
+  "applyable": true,
+  "complete": true,
+  "errored": false
+}

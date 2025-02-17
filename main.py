@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 import click
@@ -45,10 +46,22 @@ def main(path):
             check=True
         )
         dot_data = result.stdout
+        with open(os.path.join(path, "output.dot"), "w") as f:
+            f.write(dot_data)
+
     except subprocess.CalledProcessError as e:
         sys.exit(f"Error running 'terraform graph': {e.stderr}")
+    with open(os.path.join(path, "output.dot"), "r") as f:
+        dot_data = f.read()
     mermaid_flowchart = dot_to_mermaid(dot_data)
     click.echo(mermaid_flowchart)
+    with open(os.path.join(path, "output.md"), "w") as f:
+        markdown_diagram = f'''
+```mermaid
+{mermaid_flowchart}
+```
+        '''
+        f.write(markdown_diagram)
 
 
 if __name__ == "__main__":

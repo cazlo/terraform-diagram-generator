@@ -1,0 +1,10 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "docker_container.example" [label="docker_container.example"];
+  "docker_image.busybox" [label="docker_image.busybox"];
+  "local_file.existing_file" [label="local_file.existing_file"];
+  "local_file.file_to_delete" [label="local_file.file_to_delete"];
+  "local_file.file_to_update" [label="local_file.file_to_update"];
+  "docker_container.example" -> "docker_image.busybox";
+}
